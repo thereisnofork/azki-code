@@ -4,21 +4,17 @@ import { FC, useState } from "react";
 import Select, { TSelectOption } from "@/components/common/Select";
 import { getVehicleModelsList, getVehicleTypesList } from "@/utils";
 import { TVehicleApiData } from "@/service/types";
+import { emptySelectValue } from "@/constans";
 
 interface IClientVehicleForm {
   vehicleDate: TVehicleApiData;
 }
 
-const empitySelectValue = {
-  value: "",
-  label: "",
-};
-
 const ClientVehicleForm: FC<IClientVehicleForm> = ({ vehicleDate }) => {
   const [slectedVehicleType, setSlectedVehicleType] =
-    useState<TSelectOption>(empitySelectValue);
+    useState<TSelectOption>(emptySelectValue);
   const [slectedVehicleModel, setSlectedVehicleModel] =
-    useState<TSelectOption>(empitySelectValue);
+    useState<TSelectOption>(emptySelectValue);
 
   const vehicleTypesList = getVehicleTypesList(vehicleDate);
   const vehicleModelsList = getVehicleModelsList(
@@ -35,7 +31,7 @@ const ClientVehicleForm: FC<IClientVehicleForm> = ({ vehicleDate }) => {
         value={slectedVehicleType.value}
         onChange={(e) => {
           setSlectedVehicleType(e);
-          setSlectedVehicleModel(empitySelectValue);
+          setSlectedVehicleModel(emptySelectValue);
         }}
       />
       <Select

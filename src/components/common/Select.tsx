@@ -68,7 +68,7 @@ export default function Select({
         </div>
         {open && !disabled && (
           <div
-            className={`absolute left-0 mt-1 bg-white border rounded shadow z-10 ${
+            className={`absolute left-0 mt-1 max-h-[30vh] overflow-y-auto bg-white border rounded shadow z-10 ${
               fullWidth ? "w-full" : "w-40"
             }`}
           >
