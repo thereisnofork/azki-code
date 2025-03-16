@@ -1,4 +1,5 @@
-import ClientVehicleForm from "./ClientVehicleForm";
+import { Suspense } from "react";
+import SreverFetcherVehicle from "./SreverFetcherVehicle";
 
 const ServerVehicleContainer = () => {
   return (
@@ -6,7 +7,9 @@ const ServerVehicleContainer = () => {
       <div className="text-lg font-semibold my-4">بیمه شخص ثالث</div>
       <div className="mb-6 mt-8">نوع و مدل خودروی خود را انتخاب کنید.</div>
       <div className="block md:flex items-start justify-between gap-4 md:space-y-0 space-y-4">
-        <ClientVehicleForm />
+        <Suspense fallback="loading.....">
+          <SreverFetcherVehicle />
+        </Suspense>
       </div>
     </div>
   );

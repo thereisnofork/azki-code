@@ -13,7 +13,7 @@ export default function CarBgLayout({
         alt="car-background"
         height={410}
         width={410}
-        className="flex-1 z-10 self-end md:self-center p-1"
+        className="flex-1 z-[5] self-end md:self-center p-1"
       />
       <div className="min-h-[150px] absolute left-0 bottom-0 md:min-h-full bg-[#fef6dd] md:w-1/3 w-full " />
     </div>

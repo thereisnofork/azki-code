@@ -1,4 +1,4 @@
-import ServerVehicleContainer from "@/components/widgets/VehiclePageComponent/ServerVehicleContainer";
+import { ServerVehicleContainer } from "@/components/widgets";
 
 const VehiclePage = () => {
   return <ServerVehicleContainer />;

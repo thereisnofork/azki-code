@@ -2,14 +2,15 @@
 import { useState } from "react";
 import ClickOutsideListener from "./ClickOutsideListener";
 
-type Option = { label: string; value: string };
+export type TSelectOption = { label: string; value: string };
 
 type SelectProps = {
   label: string;
-  options: Option[];
+  options: TSelectOption[];
   value: string;
-  onChange: (value: string) => void;
+  onChange: (arg: TSelectOption) => void;
   fullWidth?: boolean;
+  disabled?: boolean;
 };
 
 export default function Select({
@@ -18,6 +19,7 @@ export default function Select({
   value,
   onChange,
   fullWidth = false,
+  disabled = false,
 }: SelectProps) {
   const [open, setOpen] = useState(false);
   const selected = options.find((o) => o.value === value);
@@ -27,10 +29,15 @@ export default function Select({
       <div className={`relative text-right ${fullWidth ? "w-full" : "w-40"}`}>
         <div className="relative">
           <button
-            onClick={() => setOpen(!open)}
+            disabled={disabled}
+            onClick={() => {
+              if (!disabled) {
+                setOpen(!open);
+              }
+            }}
             className={`w-full px-4 py-3 border rounded bg-white flex items-center justify-between transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               open ? "border-blue-500 text-blue-500" : "border-gray-300"
-            }`}
+            } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             <span className="block">{selected?.label || ""}</span>
             <svg
@@ -59,7 +66,7 @@ export default function Select({
             {label}
           </label>
         </div>
-        {open && (
+        {open && !disabled && (
           <div
             className={`absolute left-0 mt-1 bg-white border rounded shadow z-10 ${
               fullWidth ? "w-full" : "w-40"
@@ -69,7 +76,7 @@ export default function Select({
               <div
                 key={opt.value}
                 onClick={() => {
-                  onChange(opt.value);
+                  onChange(opt);
                   setOpen(false);
                 }}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
