@@ -2,7 +2,7 @@
 
 import { FC, useState } from "react";
 import Select, { TSelectOption } from "@/components/common/Select";
-import { getVehicleModelsList, getVehicleTypesList } from "@/utils";
+import { getVehicleModelsList, convertToSelectOptions } from "@/utils";
 import { TVehicleApiData } from "@/service/types";
 import { emptySelectValue } from "@/constans";
 
@@ -16,7 +16,7 @@ const ClientVehicleForm: FC<IClientVehicleForm> = ({ vehicleDate }) => {
   const [slectedVehicleModel, setSlectedVehicleModel] =
     useState<TSelectOption>(emptySelectValue);
 
-  const vehicleTypesList = getVehicleTypesList(vehicleDate);
+  const vehicleTypesList = convertToSelectOptions(vehicleDate);
   const vehicleModelsList = getVehicleModelsList(
     vehicleDate,
     slectedVehicleType.label

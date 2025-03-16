@@ -8,14 +8,14 @@ const MainHeader = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="max-w-[1000px] flex mx-auto flex-col min-h-screen">
+    <header className="max-w-[1000px] flex mx-auto flex-col min-h-screen">
       <div className="flex items-center justify-between h-16 relative z-20 px-5">
         <LogoSvg />
         <div className="hidden md:block">سامانه مقایسه و خرید آنلاین بیمه</div>
         <AuthButton />
       </div>
       {children}
-    </div>
+    </header>
   );
 };
 
