@@ -3,19 +3,19 @@ import { z } from "zod";
 const persianAlphaRegex = /^[\u0600-\u06FF\u0750-\u077F]+$/;
 
 export const schema = z.object({
-  first_name: z
+  firstName: z
     .string()
     .trim()
     .min(1, "نام خود را وارد کنید")
     .regex(persianAlphaRegex, "نام باید با حروف فارسی باشد"),
 
-  last_name: z
+  lastName: z
     .string()
     .trim()
     .min(1, "نام خانوادگی خود را وارد کنید")
     .regex(persianAlphaRegex, "نام خانوادگی باید با حروف فارسی باشد"),
 
-  phone_number: z
+  phoneNumber: z
     .string()
     .trim()
     .min(1, "شماره موبایل خود را وارد کنید")
