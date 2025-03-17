@@ -5,6 +5,9 @@ import Select, { TSelectOption } from "@/components/common/Select";
 import { getVehicleModelsList, convertToSelectOptions } from "@/utils";
 import { TVehicleApiData } from "@/service/types";
 import { emptySelectValue } from "@/constans";
+import { usePathname } from "next/navigation";
+import BaseButton from "@/components/common/BaseButton";
+import { ArrowSvg } from "@/components/icons";
 
 interface IClientVehicleForm {
   vehicleDate: TVehicleApiData;
@@ -21,6 +24,9 @@ const ClientVehicleForm: FC<IClientVehicleForm> = ({ vehicleDate }) => {
     vehicleDate,
     slectedVehicleType.label
   );
+
+  const pathname = usePathname();
+  const basePath = pathname.endsWith("/") ? pathname : `${pathname}/`;
 
   return (
     <>
@@ -44,6 +50,25 @@ const ClientVehicleForm: FC<IClientVehicleForm> = ({ vehicleDate }) => {
           setSlectedVehicleModel(e);
         }}
       />
+
+      <div className="flex items-center justify-between pt-4">
+        <BaseButton
+          href="../"
+          startIcon={<ArrowSvg className="rotate-180" width={9} height={9} />}
+          variant="outline"
+        >
+          مرحله قبل
+        </BaseButton>
+
+        <BaseButton
+          href={`${basePath}/${slectedVehicleType.label}-${slectedVehicleModel.label}/previous-company`}
+          disabled={!slectedVehicleModel.value}
+          endIcon={<ArrowSvg width={9} height={9} />}
+          variant="outline"
+        >
+          مرحله بعد
+        </BaseButton>
+      </div>
     </>
   );
 };

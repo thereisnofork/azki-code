@@ -1,5 +1,6 @@
 "use client";
 
+import BaseButton from "@/components/common/BaseButton";
 import BaseTextField from "@/components/common/BaseTextField";
 import { userProfileAtom } from "@/store/atoms";
 import { schema, TSchema } from "@/utils";
@@ -13,12 +14,12 @@ const SignUpPage = () => {
   const { control, handleSubmit } = useForm<TSchema>({
     resolver: zodResolver(schema),
   });
-  const [userProfile, setUserProfile] = useAtom(userProfileAtom);
+  const [, setUserProfile] = useAtom(userProfileAtom);
   const router = useRouter();
 
   const onSubmit: SubmitHandler<TSchema> = (values) => {
     setUserProfile(values);
-    router.push("./order/insurance/insurance-type");
+    router.push("./order/insurance-type");
   };
 
   return (
@@ -42,12 +43,7 @@ const SignUpPage = () => {
 
         <BaseTextField name="password" control={control} label="رمز عبور" />
         <div className="flex justify-center md:justify-end">
-          <button
-            type="submit"
-            className="bg-[#25b79A] text-white px-4 py-2 rounded-full"
-          >
-            ثبت نام
-          </button>
+          <BaseButton type="submit">ثبت نام</BaseButton>
         </div>
       </form>
     </div>
