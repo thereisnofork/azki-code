@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import Select, { TSelectOption } from "@/components/common/Select";
 import { getVehicleModelsList, convertToSelectOptions } from "@/utils";
 import { TVehicleApiData } from "@/service/types";
-import { emptySelectValue } from "@/constans";
+import { emptySelectValue } from "@/constants";
 import { usePathname } from "next/navigation";
 import BaseButton from "@/components/common/BaseButton";
 import { ArrowSvg } from "@/components/icons";

@@ -10,6 +10,19 @@ interface BaseButtonProps
   href?: string;
 }
 
+const baseClasses =
+  "py-2 px-4 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25b79A]";
+
+const filledClasses =
+  "bg-[#25b79A] text-white hover:brightness-110 active:brightness-95";
+const outlineClasses =
+  "bg-transparent border-2 border-[#25b79A] text-[#25b79A] hover:bg-[#25b79A] hover:text-white";
+
+const filledDisabledClasses =
+  "bg-[#25b79A] text-white opacity-50 cursor-not-allowed";
+const outlineDisabledClasses =
+  "bg-transparent border-2 border-[#25b79A] text-[#25b79A] opacity-50 cursor-not-allowed";
+
 const BaseButton: React.FC<BaseButtonProps> = ({
   children,
   disabled,
@@ -20,19 +33,6 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   href = "#",
   ...props
 }) => {
-  const baseClasses =
-    "py-2 px-4 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25b79A]";
-
-  const filledClasses =
-    "bg-[#25b79A] text-white hover:brightness-110 active:brightness-95";
-  const outlineClasses =
-    "bg-transparent border-2 border-[#25b79A] text-[#25b79A] hover:bg-[#25b79A] hover:text-white";
-
-  const filledDisabledClasses =
-    "bg-[#25b79A] text-white opacity-50 cursor-not-allowed";
-  const outlineDisabledClasses =
-    "bg-transparent border-2 border-[#25b79A] text-[#25b79A] opacity-50 cursor-not-allowed";
-
   const variantClasses = disabled
     ? variant === "outline"
       ? outlineDisabledClasses

@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import Select, { TSelectOption } from "@/components/common/Select";
 import { convertToSelectOptions, decodeURIComponentSafe } from "@/utils";
 import { TDiscountApiData } from "@/service/types";
-import { emptySelectValue } from "@/constans";
+import { emptySelectValue } from "@/constants";
 import { useParams } from "next/navigation";
 import BaseButton from "@/components/common/BaseButton";
 import BaseModal from "@/components/common/BaseModal";

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Select, { TSelectOption } from "@/components/common/Select";
 import { convertToSelectOptions } from "@/utils";
 import { TCompaniesApiData } from "@/service/types";
-import { emptySelectValue } from "@/constans";
+import { emptySelectValue } from "@/constants";
 import BaseButton from "@/components/common/BaseButton";
 import { ArrowSvg } from "@/components/icons";
 
