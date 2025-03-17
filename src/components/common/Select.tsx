@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ClickOutsideListener from "./ClickOutsideListener";
+import { SelectArrowSvg } from "../icons";
 
 export type TSelectOption = { label: string; value: string };
 
@@ -40,21 +41,7 @@ export default function Select({
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             <span className="block">{selected?.label || ""}</span>
-            <svg
-              className={`w-4 h-4 ml-2 rtl:ml-0 rtl:mr-2 transform transition-transform duration-200 ${
-                open ? "rotate-180" : "rotate-0"
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            <SelectArrowSvg open={open} />
           </button>
           <label
             className={`absolute transition-all duration-200 pointer-events-none ${
